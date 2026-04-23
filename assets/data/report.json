@@ -1,0 +1,130 @@
+[
+  {
+    "targil_id": 0,
+    "description": "\u05D7\u05D9\u05D1\u05D5\u05E8 \u05E9\u05E0\u05D9 \u05E9\u05D3\u05D5\u05EA",
+    "targil": "a \u002B b",
+    "sql_time": 19.088002,
+    "csharp_time": 0.0125365,
+    "nodejs_time": 0.2833404999999998
+  },
+  {
+    "targil_id": 1,
+    "description": "\u05DB\u05E4\u05DC \u05E9\u05D3\u05D4 \u05D1\u05E7\u05D1\u05D5\u05E2",
+    "targil": "c * 2",
+    "sql_time": 19.659086,
+    "csharp_time": 0.0066623,
+    "nodejs_time": 0.36479379999999945
+  },
+  {
+    "targil_id": 2,
+    "description": "\u05D7\u05D9\u05E1\u05D5\u05E8 \u05E9\u05E0\u05D9 \u05E9\u05D3\u05D5\u05EA",
+    "targil": "b - a",
+    "sql_time": 18.994031,
+    "csharp_time": 0.0079332,
+    "nodejs_time": 0.38270140000000175
+  },
+  {
+    "targil_id": 3,
+    "description": "\u05D7\u05D9\u05DC\u05D5\u05E7 \u05E9\u05D3\u05D4 \u05D1\u05E7\u05D1\u05D5\u05E2",
+    "targil": "d / 4",
+    "sql_time": 19.751279,
+    "csharp_time": 0.0072132,
+    "nodejs_time": 0.33041509999999835
+  },
+  {
+    "targil_id": 4,
+    "description": "\u05E6\u05D9\u05E8\u05D5\u05E3 \u05D7\u05D9\u05D1\u05D5\u05E8 \u05D5\u05DB\u05E4\u05DC",
+    "targil": "a * b \u002B c",
+    "sql_time": 19.245113,
+    "csharp_time": 0.0083246,
+    "nodejs_time": 0.7844141000000018
+  },
+  {
+    "targil_id": 5,
+    "description": "\u05D7\u05D9\u05D1\u05D5\u05E8 \u05DB\u05E4\u05D5\u05DC \u05E7\u05D1\u05D5\u05E2",
+    "targil": "(a \u002B b) * 8",
+    "sql_time": 19.300044999999997,
+    "csharp_time": 0.0120011,
+    "nodejs_time": 0.4907352000000028
+  },
+  {
+    "targil_id": 6,
+    "description": "\u05E9\u05D5\u05E8\u05E9 \u05E1\u05DB\u05D5\u05DD \u05E8\u05D9\u05D1\u05D5\u05E2\u05D9\u05DD (\u05E4\u05D9\u05EA\u05D2\u05D5\u05E8\u05E1)",
+    "targil": "sqrt(c^2 \u002B d^2)",
+    "sql_time": 19.807362,
+    "csharp_time": 0.015051,
+    "nodejs_time": 0.7153561999999947
+  },
+  {
+    "targil_id": 7,
+    "description": "\u05DC\u05D5\u05D2\u05E8\u05D9\u05EA\u05DD \u05D8\u05D1\u05E2\u05D9 \u05D5\u05E2\u05D5\u05D3 \u05E9\u05D3\u05D4",
+    "targil": "log(b) \u002B c",
+    "sql_time": 19.77591,
+    "csharp_time": 0.0063846,
+    "nodejs_time": 0.5703899999999994
+  },
+  {
+    "targil_id": 8,
+    "description": "\u05E2\u05E8\u05DA \u05DE\u05D5\u05D7\u05DC\u05D8 \u05E9\u05DC \u05D4\u05E4\u05E8\u05E9",
+    "targil": "abs(d - b)",
+    "sql_time": 19.577032,
+    "csharp_time": 0.004295,
+    "nodejs_time": 0.5463319000000046
+  },
+  {
+    "targil_id": 9,
+    "description": "\u05DE\u05E8\u05D7\u05E7 \u05D0\u05D5\u05E7\u05DC\u05D9\u05D3\u05D9 4D",
+    "targil": "sqrt(a^2 \u002B b^2 \u002B c^2 \u002B d^2)",
+    "sql_time": 20.487247,
+    "csharp_time": 0.0151476,
+    "nodejs_time": 0.7512736999999906
+  },
+  {
+    "targil_id": 10,
+    "description": "\u05E9\u05D9\u05DC\u05D5\u05D1 4 \u05DE\u05E9\u05EA\u05E0\u05D9\u05DD",
+    "targil": "(a \u002B b) * (c - d) / 2",
+    "sql_time": 19.69865,
+    "csharp_time": 0.0072952,
+    "nodejs_time": 0.5036244999999908
+  },
+  {
+    "targil_id": 11,
+    "description": "\u05EA\u05E0\u05D0\u05D9: \u05D0\u05DD a\u003E5 \u05D0\u05D6\u05D9 b*2 \u05D0\u05D7\u05E8\u05EA b/2",
+    "targil": "b * 2",
+    "sql_time": 20.137841,
+    "csharp_time": 0.0040768,
+    "nodejs_time": 0.4396053000000102
+  },
+  {
+    "targil_id": 12,
+    "description": "\u05EA\u05E0\u05D0\u05D9: \u05D0\u05DD b\u003C10 \u05D0\u05D6\u05D9 a\u002B1 \u05D0\u05D7\u05E8\u05EA d-1",
+    "targil": "a \u002B 1",
+    "sql_time": 19.730559,
+    "csharp_time": 0.0053032,
+    "nodejs_time": 0.43190239999999175
+  },
+  {
+    "targil_id": 13,
+    "description": "\u05EA\u05E0\u05D0\u05D9 \u05E9\u05D5\u05D5\u05D9\u05D5\u05DF: 1 \u05D0\u05DD a==c \u05D0\u05D7\u05E8\u05EA 0",
+    "targil": "1",
+    "sql_time": 19.825161,
+    "csharp_time": 0.0070364,
+    "nodejs_time": 0.5192457999999751
+  },
+  {
+    "targil_id": 14,
+    "description": "\u05DE\u05DB\u05E4\u05DC\u05D4 \u05DE\u05D5\u05EA\u05E0\u05D9\u05EA",
+    "targil": "a * c",
+    "sql_time": 19.299044000000002,
+    "csharp_time": 0.00719,
+    "nodejs_time": 0.6390953999999911
+  },
+  {
+    "targil_id": 15,
+    "description": "\u05DE\u05DE\u05D5\u05E6\u05E2 \u05D0\u05D5 \u05E1\u05DB\u05D5\u05DD \u05DC\u05E4\u05D9 d",
+    "targil": "(a \u002B b \u002B c \u002B d) / 4",
+    "sql_time": 20.405869,
+    "csharp_time": 0.0072531,
+    "nodejs_time": 0.9508720999999787
+  }
+]

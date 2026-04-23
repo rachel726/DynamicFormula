@@ -1,0 +1,130 @@
+[
+  {
+    "targilId": 0,
+    "targil": "a \u002B b",
+    "tnai": null,
+    "targilFalse": null,
+    "description": "\u05D7\u05D9\u05D1\u05D5\u05E8 \u05E9\u05E0\u05D9 \u05E9\u05D3\u05D5\u05EA",
+    "isConditional": false
+  },
+  {
+    "targilId": 1,
+    "targil": "c * 2",
+    "tnai": null,
+    "targilFalse": null,
+    "description": "\u05DB\u05E4\u05DC \u05E9\u05D3\u05D4 \u05D1\u05E7\u05D1\u05D5\u05E2",
+    "isConditional": false
+  },
+  {
+    "targilId": 2,
+    "targil": "b - a",
+    "tnai": null,
+    "targilFalse": null,
+    "description": "\u05D7\u05D9\u05E1\u05D5\u05E8 \u05E9\u05E0\u05D9 \u05E9\u05D3\u05D5\u05EA",
+    "isConditional": false
+  },
+  {
+    "targilId": 3,
+    "targil": "d / 4",
+    "tnai": null,
+    "targilFalse": null,
+    "description": "\u05D7\u05D9\u05DC\u05D5\u05E7 \u05E9\u05D3\u05D4 \u05D1\u05E7\u05D1\u05D5\u05E2",
+    "isConditional": false
+  },
+  {
+    "targilId": 4,
+    "targil": "a * b \u002B c",
+    "tnai": null,
+    "targilFalse": null,
+    "description": "\u05E6\u05D9\u05E8\u05D5\u05E3 \u05D7\u05D9\u05D1\u05D5\u05E8 \u05D5\u05DB\u05E4\u05DC",
+    "isConditional": false
+  },
+  {
+    "targilId": 5,
+    "targil": "(a \u002B b) * 8",
+    "tnai": null,
+    "targilFalse": null,
+    "description": "\u05D7\u05D9\u05D1\u05D5\u05E8 \u05DB\u05E4\u05D5\u05DC \u05E7\u05D1\u05D5\u05E2",
+    "isConditional": false
+  },
+  {
+    "targilId": 6,
+    "targil": "sqrt(c^2 \u002B d^2)",
+    "tnai": null,
+    "targilFalse": null,
+    "description": "\u05E9\u05D5\u05E8\u05E9 \u05E1\u05DB\u05D5\u05DD \u05E8\u05D9\u05D1\u05D5\u05E2\u05D9\u05DD (\u05E4\u05D9\u05EA\u05D2\u05D5\u05E8\u05E1)",
+    "isConditional": false
+  },
+  {
+    "targilId": 7,
+    "targil": "log(b) \u002B c",
+    "tnai": null,
+    "targilFalse": null,
+    "description": "\u05DC\u05D5\u05D2\u05E8\u05D9\u05EA\u05DD \u05D8\u05D1\u05E2\u05D9 \u05D5\u05E2\u05D5\u05D3 \u05E9\u05D3\u05D4",
+    "isConditional": false
+  },
+  {
+    "targilId": 8,
+    "targil": "abs(d - b)",
+    "tnai": null,
+    "targilFalse": null,
+    "description": "\u05E2\u05E8\u05DA \u05DE\u05D5\u05D7\u05DC\u05D8 \u05E9\u05DC \u05D4\u05E4\u05E8\u05E9",
+    "isConditional": false
+  },
+  {
+    "targilId": 9,
+    "targil": "sqrt(a^2 \u002B b^2 \u002B c^2 \u002B d^2)",
+    "tnai": null,
+    "targilFalse": null,
+    "description": "\u05DE\u05E8\u05D7\u05E7 \u05D0\u05D5\u05E7\u05DC\u05D9\u05D3\u05D9 4D",
+    "isConditional": false
+  },
+  {
+    "targilId": 10,
+    "targil": "(a \u002B b) * (c - d) / 2",
+    "tnai": null,
+    "targilFalse": null,
+    "description": "\u05E9\u05D9\u05DC\u05D5\u05D1 4 \u05DE\u05E9\u05EA\u05E0\u05D9\u05DD",
+    "isConditional": false
+  },
+  {
+    "targilId": 11,
+    "targil": "b * 2",
+    "tnai": "a \u003E 5",
+    "targilFalse": "b / 2",
+    "description": "\u05EA\u05E0\u05D0\u05D9: \u05D0\u05DD a\u003E5 \u05D0\u05D6\u05D9 b*2 \u05D0\u05D7\u05E8\u05EA b/2",
+    "isConditional": true
+  },
+  {
+    "targilId": 12,
+    "targil": "a \u002B 1",
+    "tnai": "b \u003C 10",
+    "targilFalse": "d - 1",
+    "description": "\u05EA\u05E0\u05D0\u05D9: \u05D0\u05DD b\u003C10 \u05D0\u05D6\u05D9 a\u002B1 \u05D0\u05D7\u05E8\u05EA d-1",
+    "isConditional": true
+  },
+  {
+    "targilId": 13,
+    "targil": "1",
+    "tnai": "a = c",
+    "targilFalse": "0",
+    "description": "\u05EA\u05E0\u05D0\u05D9 \u05E9\u05D5\u05D5\u05D9\u05D5\u05DF: 1 \u05D0\u05DD a==c \u05D0\u05D7\u05E8\u05EA 0",
+    "isConditional": true
+  },
+  {
+    "targilId": 14,
+    "targil": "a * c",
+    "tnai": "a \u003E b",
+    "targilFalse": "b * d",
+    "description": "\u05DE\u05DB\u05E4\u05DC\u05D4 \u05DE\u05D5\u05EA\u05E0\u05D9\u05EA",
+    "isConditional": true
+  },
+  {
+    "targilId": 15,
+    "targil": "(a \u002B b \u002B c \u002B d) / 4",
+    "tnai": "d \u003E= 50",
+    "targilFalse": "a \u002B b \u002B c \u002B d",
+    "description": "\u05DE\u05DE\u05D5\u05E6\u05E2 \u05D0\u05D5 \u05E1\u05DB\u05D5\u05DD \u05DC\u05E4\u05D9 d",
+    "isConditional": true
+  }
+]
