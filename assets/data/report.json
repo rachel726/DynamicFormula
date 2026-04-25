@@ -5,7 +5,7 @@
     "targil": "a \u002B b",
     "sql_time": 13.557054,
     "csharp_time": 0.0196111,
-    "nodejs_time": null
+    "nodejs_time": 0.919406799999997
   },
   {
     "targil_id": 1,
@@ -13,7 +13,7 @@
     "targil": "c * 2",
     "sql_time": 15.397018,
     "csharp_time": 0.0095203,
-    "nodejs_time": null
+    "nodejs_time": 0.574742099999974
   },
   {
     "targil_id": 2,
@@ -21,7 +21,7 @@
     "targil": "b - a",
     "sql_time": 15.228684999999999,
     "csharp_time": 0.0125486,
-    "nodejs_time": null
+    "nodejs_time": 0.4266227000000072
   },
   {
     "targil_id": 3,
@@ -29,7 +29,7 @@
     "targil": "d / 4",
     "sql_time": 15.524109000000001,
     "csharp_time": 0.0084556,
-    "nodejs_time": null
+    "nodejs_time": 0.29043009999999775
   },
   {
     "targil_id": 4,
@@ -37,7 +37,7 @@
     "targil": "a * b \u002B c",
     "sql_time": 15.059044,
     "csharp_time": 0.0069271,
-    "nodejs_time": null
+    "nodejs_time": 0.45411900000000605
   },
   {
     "targil_id": 5,
@@ -45,7 +45,7 @@
     "targil": "(a \u002B b) * 8",
     "sql_time": 15.196376,
     "csharp_time": 0.0053223,
-    "nodejs_time": null
+    "nodejs_time": 0.7054336999999942
   },
   {
     "targil_id": 6,
@@ -53,7 +53,7 @@
     "targil": "sqrt(c^2 \u002B d^2)",
     "sql_time": 15.782635,
     "csharp_time": 0.0167967,
-    "nodejs_time": null
+    "nodejs_time": 0.7310407000000123
   },
   {
     "targil_id": 7,
@@ -61,7 +61,7 @@
     "targil": "log(b) \u002B c",
     "sql_time": 15.240941999999999,
     "csharp_time": 0.0058559,
-    "nodejs_time": null
+    "nodejs_time": 0.5986919999999227
   },
   {
     "targil_id": 8,
@@ -69,7 +69,7 @@
     "targil": "abs(d - b)",
     "sql_time": 15.292537,
     "csharp_time": 0.0056323,
-    "nodejs_time": null
+    "nodejs_time": 0.6085021000000416
   },
   {
     "targil_id": 9,
@@ -77,7 +77,7 @@
     "targil": "sqrt(a^2 \u002B b^2 \u002B c^2 \u002B d^2)",
     "sql_time": 15.779641,
     "csharp_time": 0.0198344,
-    "nodejs_time": null
+    "nodejs_time": 1.248571799999918
   },
   {
     "targil_id": 10,
@@ -85,7 +85,7 @@
     "targil": "(a \u002B b) * (c - d) / 2",
     "sql_time": 15.307449,
     "csharp_time": 0.0055522,
-    "nodejs_time": null
+    "nodejs_time": 0.7293918000000995
   },
   {
     "targil_id": 11,
@@ -93,7 +93,7 @@
     "targil": "b * 2",
     "sql_time": 15.413167,
     "csharp_time": 0.0058739,
-    "nodejs_time": null
+    "nodejs_time": 0.5312148999999045
   },
   {
     "targil_id": 12,
@@ -101,7 +101,7 @@
     "targil": "a \u002B 1",
     "sql_time": 15.059535,
     "csharp_time": 0.0070089,
-    "nodejs_time": null
+    "nodejs_time": 0.5150121000000508
   },
   {
     "targil_id": 13,
@@ -109,7 +109,7 @@
     "targil": "1",
     "sql_time": 14.988405,
     "csharp_time": 0.0046122,
-    "nodejs_time": null
+    "nodejs_time": 0.5247513000000036
   },
   {
     "targil_id": 14,
@@ -117,7 +117,7 @@
     "targil": "a * c",
     "sql_time": 14.864291,
     "csharp_time": 0.0039944,
-    "nodejs_time": null
+    "nodejs_time": 0.7298993000000482
   },
   {
     "targil_id": 15,
@@ -125,6 +125,6 @@
     "targil": "(a \u002B b \u002B c \u002B d) / 4",
     "sql_time": 14.773616,
     "csharp_time": 0.0041699,
-    "nodejs_time": null
+    "nodejs_time": 0.9347129999999888
   }
 ]
