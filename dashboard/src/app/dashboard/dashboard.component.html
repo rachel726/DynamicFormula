@@ -1,0 +1,184 @@
+<!-- ╔══════════════════════════════════════════════════════════════════╗
+     ║  dashboard.component.html                                         ║
+     ║  מסך דוח — השוואת ביצועים בין 3 השיטות                          ║
+     ╚══════════════════════════════════════════════════════════════════╝ -->
+<div class="dashboard" dir="rtl">
+
+  <!-- ══ Header ═══════════════════════════════════════════════ -->
+  <header class="header">
+    <div class="logo">
+      <span class="logo-icon">⚡</span>
+      <div class="logo-text">
+        <div class="logo-title">Dynamic Formula Engine</div>
+        <div class="logo-subtitle">מבדק פיתוח רמה ג · משרד החינוך</div>
+      </div>
+    </div>
+    <div class="badges">
+      <span class="badge sql">SQL · Stored Procedure</span>
+      <span class="badge cs">C# · Compiled Lambda</span>
+      <span class="badge ts">Node.js · math.js</span>
+    </div>
+  </header>
+
+  <!-- ══ Summary Cards ═════════════════════════════════════════ -->
+  <section class="summary" *ngIf="!isLoading && rows.length > 0">
+    <div class="card card--sql">
+      <div class="card-label">SQL</div>
+      <div class="card-hint">ממוצע זמן ריצה לנוסחה (1M רשומות):</div>
+      <div class="card-value">{{ fmt(summary.sql, 3) }}<span class="unit">שניות</span></div>
+      <div class="card-total" *ngIf="summary.sqlTotal">
+        <div class="card-total-label">סה"כ ל-16 נוסחאות:</div>
+        <div class="card-total-value">{{ fmt(summary.sqlTotal, 1) }} שניות</div>
+      </div>
+    </div>
+    <div class="card card--cs">
+      <div class="card-label">C# .NET</div>
+      <div class="card-hint">ממוצע זמן ריצה לנוסחה (1M רשומות):</div>
+      <div class="card-value">{{ fmt(summary.csharp, 3) }}<span class="unit">שניות</span></div>
+      <div class="card-total" *ngIf="summary.csTotal">
+        <div class="card-total-label">סה"כ ל-16 נוסחאות:</div>
+        <div class="card-total-value">{{ fmt(summary.csTotal, 3) }} שניות</div>
+      </div>
+    </div>
+    <div class="card card--ts">
+      <div class="card-label">Node.js</div>
+      <div class="card-hint">ממוצע זמן ריצה לנוסחה (1M רשומות):</div>
+      <div class="card-value">{{ fmt(summary.nodejs, 3) }}<span class="unit">שניות</span></div>
+      <div class="card-total" *ngIf="summary.nodeTotal">
+        <div class="card-total-label">סה"כ ל-16 נוסחאות:</div>
+        <div class="card-total-value">{{ fmt(summary.nodeTotal, 1) }} שניות</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ Ranking ═══════════════════════════════════════════════ -->
+  <section class="panel ranking" *ngIf="rankedSummary.length > 0">
+    <h2>🏆 דירוג מהירות</h2>
+    <div class="rank-list">
+      <div class="rank-item" *ngFor="let r of rankedSummary; let i = index" [class]="'rank-' + r.cls">
+        <span class="rank-num">{{ i === 0 ? '🥇' : (i === 1 ? '🥈' : '🥉') }}</span>
+        <span class="rank-name">{{ r.name }}</span>
+        <span class="rank-time">{{ fmt(r.value, 3) }} שניות</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ Chart ═════════════════════════════════════════════════ -->
+  <section class="panel" *ngIf="!isLoading">
+    <h2>📊 גרף השוואה</h2>
+<div id="chart-container" class="chart-wrap"></div>
+  </section>
+
+  <!-- ══ Detailed Table ════════════════════════════════════════ -->
+  <section class="panel" *ngIf="!isLoading">
+    <h2>📋 פירוט לכל נוסחה</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>תיאור</th>
+            <th>ביטוי</th>
+            <th class="th-sql">SQL (s)</th>
+            <th class="th-cs">C# (s)</th>
+            <th class="th-ts">Node.js (s)</th>
+            <th>מהיר ביותר</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let row of rows">
+            <td class="num">{{ row.targil_id }}</td>
+            <td>{{ row.description }}</td>
+            <td><code>{{ fullFormula(row) }}</code></td>
+            <td class="num num-sql">{{ fmt(row.sql_time) }}</td>
+            <td class="num num-cs">{{ fmt(row.csharp_time) }}</td>
+            <td class="num num-ts">{{ fmt(row.nodejs_time) }}</td>
+            <td><span class="fastest">{{ fastest(row) }}</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ══ Methods Explanation ═══════════════════════════════════ -->
+  <section class="panel explanation">
+    <h2>🔬 השיטות</h2>
+
+    <div class="method">
+      <div class="method-head sql">
+        <span class="method-num">1</span>
+        <span class="method-title">SQL — Stored Procedure</span>
+      </div>
+      <p>
+        חישוב <strong>SET-BASED</strong> מלא בתוך ה-DB באמצעות <code>sp_executesql</code>.
+        <code>INSERT...SELECT</code> עם <code>CASE WHEN</code> דינמי — מעבד מיליון רשומות בפעולה בודדת.
+        אין מעברים בין תהליכים, אין תעבורת רשת — הכל בתוך SQL Server.
+      </p>
+    </div>
+
+    <div class="method">
+      <div class="method-head cs">
+        <span class="method-num">2</span>
+        <span class="method-title">C# — Compiled Expression Trees</span>
+      </div>
+      <p>
+        מפרש נוסחאות עצמאי שבנינו, הממיר כל ביטוי ל-<code>Func&lt;double,double,double,double,double&gt;</code>
+        דרך <code>System.Linq.Expressions</code>. <strong>קומפילציה פעם אחת ל-IL</strong>, ואז מיליון
+        הפעלות במהירות native. משולב עם <code>Parallel.For</code> לניצול כל ליבות ה-CPU.
+      </p>
+    </div>
+
+    <div class="method">
+      <div class="method-head ts">
+        <span class="method-num">3</span>
+        <span class="method-title">Node.js — math.js (Server-side JavaScript)</span>
+      </div>
+      <p>
+        סקריפט <code>node calculate.js</code> הרץ על Node.js.
+        משתמש ב-<code>math.compile()</code> לקומפילציה מראש של כל ביטוי, ואז
+        מריץ מיליון חישובים בלולאה עם <code>performance.now()</code> למדידה מדויקת.
+      </p>
+    </div>
+
+  </section>
+
+  <!-- ══ Recommendation ════════════════════════════════════════ -->
+  <section class="panel recommendation" *ngIf="rankedSummary.length > 0">
+    <h2>💡 המסקנה</h2>
+    <p>
+      השיטה המהירה ביותר היא
+      <strong class="winner">{{ rankedSummary[0].name }}</strong>
+      עם ממוצע של <strong>{{ fmt(rankedSummary[0].value, 3) }} שניות</strong> לנוסחה (על מיליון שורות).
+    </p>
+    <ul class="method-comparison">
+      <li><strong class="cs-text">C# .NET</strong> — חישוב ב-RAM עם Parallel.For על כל ליבות ה-CPU, ללא גישות דיסק וללא תעבורת רשת. הכי מהיר.</li>
+      <li><strong class="sql-text">SQL</strong> — כותב מיליון שורות לדיסק בכל נוסחה. יתרונו: פשטות ותחזוקה — לא מהירות.</li>
+      <li><strong class="ts-text">Node.js</strong> — גמישות ופיתוח מהיר, אך JavaScript איטי יותר לחישובים כבדים.</li>
+    </ul>
+    <p class="recommendation-note">
+      💡 <strong>הערה:</strong> הזמנים המוצגים נמדדו על חומרה מקומית ספציפית — המספרים המוחלטים ישתנו בין מחשבים.
+      אולם <strong>היחסים בין השיטות צפויים להישמר</strong> בכל סביבה: C# in-memory תמיד יהיה מהיר משמעותית מ-SQL שכותב לדיסק.
+      בסביבת ענן, SQL מנוהל (כגון Azure SQL) יהיה מהיר יותר — אך C# ישמור על יתרונו.
+    </p>
+  </section>
+
+  <!-- ══ Loading ═══════════════════════════════════════════════ -->
+  <div class="loading" *ngIf="isLoading">
+    <div class="spinner"></div>
+    <span>טוען דוח ביצועים...</span>
+  </div>
+
+  <!-- ══ Error ═════════════════════════════════════════════════ -->
+  <div class="error-panel" *ngIf="error">
+    <strong>שגיאה:</strong> {{ error }}
+    <br><br>
+    ודאי שהרצת את <code>dotnet run</code> מתיקיית ה-Benchmarks כדי ליצור את קבצי ה-JSON.
+  </div>
+
+  <!-- ══ Footer ════════════════════════════════════════════════ -->
+  <footer class="footer">
+    <span>⚡ Dynamic Formula Engine</span>
+    <span class="dot">•</span>
+    <span>3 Languages · 16 Formulas · 1M Rows</span>
+  </footer>
+</div>

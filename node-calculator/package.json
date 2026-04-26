@@ -1,0 +1,17 @@
+{
+  "name":        "dynamic-formula-calculator",
+  "version":     "1.0.0",
+  "description": "Method 3 — Node.js server-side formula calculator with math.js",
+  "main":        "calculate.js",
+  "scripts": {
+    "start":   "node calculate.js",
+    "run":     "node calculate.js"
+  },
+  "dependencies": {
+    "mathjs":           "^12.4.0",
+    "mssql":            "^10.0.2",
+    "msnodesqlv8":      "^4.2.0"
+  },
+  "author":  "Dynamic Formula Engine",
+  "license": "MIT"
+}

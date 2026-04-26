@@ -1,0 +1,460 @@
+/* ╔══════════════════════════════════════════════════════════════════╗
+   ║  dashboard.component.scss                                         ║
+   ║  עיצוב מקצועי · Dark theme · RTL                                 ║
+   ╚══════════════════════════════════════════════════════════════════╝ */
+
+:host {
+  display: block;
+  direction: rtl;
+  font-family: 'Segoe UI', 'Heebo', system-ui, sans-serif;
+}
+
+$sql-color:    #14b8a6;
+$cs-color:     #8b5cf6;
+$ts-color:     #f97316;
+$api-color:    #3b82f6;
+$bg-main:      #0b1120;
+$bg-surface:   #1e293b;
+$bg-surface2:  #334155;
+$text-main:    #f1f5f9;
+$text-muted:   #94a3b8;
+$border:       #334155;
+$radius:       12px;
+
+/* ── Main Layout ───────────────────────────────────────── */
+.dashboard {
+  min-height: 100vh;
+  background: linear-gradient(180deg, $bg-main 0%, darken($bg-main, 2%) 100%);
+  color: $text-main;
+  padding-bottom: 40px;
+}
+
+/* ══ Header ═══════════════════════════════════════════════ */
+.header {
+  background: linear-gradient(135deg, #1e293b 0%, #0b1120 100%);
+  border-bottom: 1px solid $border;
+  padding: 20px 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  backdrop-filter: blur(10px);
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    .logo-icon { font-size: 32px; }
+
+    .logo-text {
+      .logo-title {
+        font-size: 22px;
+        font-weight: 700;
+        background: linear-gradient(90deg, $sql-color, $cs-color, $ts-color);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+      .logo-subtitle {
+        font-size: 12px;
+        color: $text-muted;
+        margin-top: 2px;
+      }
+    }
+  }
+
+  .badges {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+}
+
+.badge {
+  padding: 5px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+
+  &.sql { background: rgba($sql-color, 0.15); color: $sql-color; border: 1px solid rgba($sql-color, 0.4); }
+  &.cs  { background: rgba($cs-color,  0.15); color: $cs-color;  border: 1px solid rgba($cs-color,  0.4); }
+  &.ts  { background: rgba($ts-color,  0.15); color: $ts-color;  border: 1px solid rgba($ts-color,  0.4); }
+}
+
+/* ══ Summary Cards ════════════════════════════════════════ */
+.summary {
+  max-width: 1200px;
+  margin: 32px auto;
+  padding: 0 32px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 18px;
+}
+
+.card {
+  background: $bg-surface;
+  border: 1px solid $border;
+  border-radius: $radius;
+  padding: 24px;
+  text-align: center;
+  transition: transform .2s, box-shadow .2s;
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 36px rgba(0,0,0,0.3);
+  }
+
+  &--sql { border-top: 3px solid $sql-color; }
+  &--cs  { border-top: 3px solid $cs-color;  }
+  &--ts  { border-top: 3px solid $ts-color;  }
+
+  .card-label {
+    font-size: 12px;
+    color: $text-muted;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+  }
+
+  .card-hint {
+    font-size: 11px;
+    color: $text-muted;
+    margin-top: 14px;
+    margin-bottom: 4px;
+  }
+
+  .card-value {
+    font-size: 40px;
+    font-weight: 800;
+    margin: 0 0 2px;
+
+    .unit {
+      font-size: 14px;
+      color: $text-muted;
+      margin-right: 6px;
+    }
+  }
+
+  .card-total {
+    margin-top: 12px;
+    border-top: 2px solid rgba(255,255,255,0.35);
+    padding-top: 10px;
+
+    .card-total-label {
+      font-size: 11px;
+      color: $text-muted;
+      margin-bottom: 3px;
+    }
+
+    .card-total-value {
+      font-size: 16px;
+      font-weight: 700;
+      color: $text-main;
+    }
+  }
+}
+
+/* ══ Panels ═══════════════════════════════════════════════ */
+.panel {
+  max-width: 1200px;
+  margin: 24px auto;
+  padding: 24px 28px;
+  background: $bg-surface;
+  border: 1px solid $border;
+  border-radius: $radius;
+
+  h2 {
+    font-size: 18px;
+    font-weight: 700;
+    margin: 0 0 16px;
+  }
+}
+
+/* ══ Ranking ══════════════════════════════════════════════ */
+.ranking {
+  .rank-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .rank-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 14px 20px;
+    background: $bg-surface2;
+    border-radius: 8px;
+    border-right: 4px solid transparent;
+
+    &.rank-sql { border-right-color: $sql-color; }
+    &.rank-cs  { border-right-color: $cs-color;  }
+    &.rank-ts  { border-right-color: $ts-color;  }
+
+    .rank-num  { font-size: 26px; min-width: 36px; }
+    .rank-name { flex: 1; font-weight: 600; font-size: 15px; }
+    .rank-time { font-family: monospace; color: $text-muted; font-size: 15px; }
+  }
+}
+
+/* ══ Chart ═══════════════════════════════════════════════ */
+.chart-wrap {
+  position: relative;
+  height: 380px;
+  width: 100%;
+
+  canvas {
+    display: block;
+    width: 100% !important;
+    height: 100% !important;
+  }
+}
+
+/* ══ Table ═══════════════════════════════════════════════ */
+.table-wrap {
+  overflow-x: auto;
+  border-radius: 8px;
+  background: $bg-main;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+
+  th {
+    background: $bg-surface2;
+    padding: 12px 14px;
+    text-align: right;
+    color: $text-muted;
+    font-weight: 600;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-bottom: 1px solid $border;
+  }
+
+  td {
+    padding: 11px 14px;
+    border-bottom: 1px solid $border;
+    vertical-align: middle;
+  }
+
+  tr:hover td { background: rgba($bg-surface2, 0.5); }
+  tr:last-child td { border-bottom: none; }
+
+  code {
+    background: $bg-main;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    color: $sql-color;
+  }
+
+  .num { font-family: monospace; text-align: center; }
+  .num-sql { color: $sql-color; font-weight: 600; }
+  .num-cs  { color: $cs-color;  font-weight: 600; }
+  .num-ts  { color: $ts-color;  font-weight: 600; }
+
+  .fastest {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 700;
+    background: rgba($sql-color, 0.15);
+    color: $sql-color;
+  }
+
+  .th-sql { color: $sql-color; }
+  .th-cs  { color: $cs-color; }
+  .th-ts  { color: $ts-color; }
+}
+
+/* ══ Methods Explanation ══════════════════════════════════ */
+.explanation {
+  .method {
+    margin-bottom: 20px;
+
+    &:last-child { margin-bottom: 0; }
+
+    .method-head {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 8px;
+
+      .method-num {
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        font-size: 13px;
+      }
+
+      .method-title {
+        font-size: 15px;
+        font-weight: 700;
+      }
+
+      &.sql .method-num { background: rgba($sql-color, 0.2); color: $sql-color; }
+      &.sql .method-title { color: $sql-color; }
+      &.cs  .method-num { background: rgba($cs-color,  0.2); color: $cs-color;  }
+      &.cs  .method-title { color: $cs-color; }
+      &.ts  .method-num { background: rgba($ts-color,  0.2); color: $ts-color;  }
+      &.ts  .method-title { color: $ts-color; }
+      &.api .method-num { background: rgba($api-color, 0.2); color: $api-color; }
+      &.api .method-title { color: $api-color; }
+    }
+
+    p {
+      margin: 0 40px;
+      color: $text-muted;
+      font-size: 14px;
+      line-height: 1.7;
+
+      code {
+        color: rgba($text-main, 0.8);
+        font-size: 13px;
+      }
+
+      strong { color: $text-main; }
+    }
+
+  }
+}
+
+/* ══ Recommendation ═══════════════════════════════════════ */
+.recommendation {
+  background: linear-gradient(135deg, rgba($sql-color, 0.1), rgba($cs-color, 0.05));
+  border: 1px solid rgba($sql-color, 0.3);
+
+  p {
+    font-size: 16px;
+    line-height: 1.7;
+    margin: 0 0 12px;
+
+    &.recommendation-text {
+      color: $text-muted;
+      font-size: 14px;
+    }
+
+
+    &.recommendation-note {
+      color: $text-muted;
+      font-size: 13px;
+      padding: 12px 16px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      margin: 4px 0 0;
+
+      strong { color: $text-main; }
+    }
+  }
+
+  .method-comparison {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    li {
+      padding: 10px 16px;
+      background: rgba(255,255,255,0.02);
+      border-radius: 6px;
+      border-right: 3px solid $border;
+      font-size: 14px;
+      color: $text-muted;
+      line-height: 1.6;
+
+      &:nth-child(1) { border-right-color: $cs-color; }
+      &:nth-child(2) { border-right-color: $sql-color; }
+      &:nth-child(3) { border-right-color: $ts-color; }
+
+      strong { font-size: 15px; }
+    }
+
+    .cs-text  { color: $cs-color; }
+    .sql-text { color: $sql-color; }
+    .ts-text  { color: $ts-color; }
+  }
+
+  .winner {
+    color: $sql-color;
+    font-size: 22px;
+    padding: 0 6px;
+  }
+}
+
+/* ══ Error ════════════════════════════════════════════════ */
+.error-panel {
+  max-width: 1200px;
+  margin: 24px auto;
+  padding: 20px 28px;
+  background: rgba(#ef4444, 0.1);
+  border: 1px solid rgba(#ef4444, 0.4);
+  color: #fca5a5;
+  border-radius: $radius;
+  line-height: 1.7;
+
+  code {
+    background: $bg-main;
+    padding: 2px 8px;
+    border-radius: 4px;
+    color: #fbbf24;
+  }
+}
+
+/* ══ Footer ══════════════════════════════════════════════ */
+.footer {
+  max-width: 1200px;
+  margin: 40px auto 0;
+  padding: 24px 32px;
+  color: $text-muted;
+  font-size: 13px;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+
+  .dot { opacity: 0.5; }
+}
+
+/* ══ Loading ═════════════════════════════════════════════ */
+.loading {
+  position: fixed;
+  inset: 0;
+  background: rgba($bg-main, 0.85);
+  backdrop-filter: blur(4px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  z-index: 999;
+
+  span { color: $text-muted; font-size: 15px; }
+}
+
+.spinner {
+  width: 48px;
+  height: 48px;
+  border: 4px solid $border;
+  border-top-color: $cs-color;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }

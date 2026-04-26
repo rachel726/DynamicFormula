@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\DynamicFormula.Core\DynamicFormula.Core.csproj" />
+    <ProjectReference Include="..\DynamicFormula.Engine\DynamicFormula.Engine.csproj" />
+    <ProjectReference Include="..\DynamicFormula.Data\DynamicFormula.Data.csproj" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+</Project>

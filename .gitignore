@@ -1,0 +1,30 @@
+# .NET
+bin/
+obj/
+*.user
+*.suo
+.vs/
+*.log
+
+# Node
+node_modules/
+npm-debug.log*
+
+# Angular build output — נ push gh-pages בנפרד
+dashboard/dist/
+dashboard/.angular/
+
+# SQL Server files
+*.mdf
+*.ldf
+*.ndf
+
+# Claude Code internal settings (לא קשור לפרויקט)
+.claude/
+**/.claude/
+
+# Misc
+.env
+*.DS_Store
+Thumbs.db
+5
